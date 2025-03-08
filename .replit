@@ -1,2 +1,21 @@
+
 language = "c"
-run = "gcc -o hello /home/runner/project2/src/hello.c"
+run = "gcc -o labrabota3-1 src/main.c"
+modules = ["c-clang14"]
+
+[nix]
+channel = "stable-24_05"
+
+[deployment]
+run = ["sh", "-c", "gcc -o labrabota3-1 src/main.c"]
+
+[workflows]
+runButton = "Run"
+
+[[workflows.workflow]]
+name = "Run"
+author = 40284490
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "gcc -o labrabota3-1 src/main.c && ./labrabota3-1 10"
